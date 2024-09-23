@@ -1,11 +1,7 @@
 import React, { FC } from "react";
 import styles from "./header.module.scss";
 
-
-interface HeaderProps {
-
-}
-const Header: FC<HeaderProps> = () => {
+const Header: FC = () => {
   return (
     <header className={styles.header}>
       <div className="container">

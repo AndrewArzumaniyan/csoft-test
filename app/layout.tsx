@@ -4,21 +4,6 @@ import Header from "@/components/Header/Header";
 import "../styles/normalize.css";
 import "../styles/globals.scss";
 
-const robotoBold = localFont({
-  src: "./fonts/Roboto-Bold.ttf",
-  variable: "--font-roboto-bold",
-  weight: "700",
-});
-const robotoLight = localFont({
-  src: "./fonts/Roboto-Light.ttf",
-  variable: "--font-roboto-light",
-  weight: "700",
-});
-const robotoMedium = localFont({
-  src: "./fonts/Roboto-Medium.ttf",
-  variable: "--font-roboto-medium",
-  weight: "700",
-});
 const robotoRegular = localFont({
   src: "./fonts/Roboto-Regular.ttf",
   variable: "--font-roboto-regular",
