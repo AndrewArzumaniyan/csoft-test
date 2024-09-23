@@ -3,12 +3,13 @@ import Button from '../../UI/Button/Button';
 import { Column } from '../../../interfaces/tableInterfaces';
 
 interface TableBodyProps {
-  rows: string[][];
-  columns: Column[];
-  onCellClick: (rowIndex: number, colIndex: number) => void;
+  rows: string[][]; 
+  columns: Column[]; 
+  onCellClick: (rowIndex: number, colIndex: number) => void; 
+  onRemoveRow: (rowIndex: number) => void;
 }
 
-const TableBody: React.FC<TableBodyProps> = ({ rows, columns, onCellClick }) => {
+const TableBody: React.FC<TableBodyProps> = ({ rows, columns, onCellClick, onRemoveRow }) => {
   return (
     <tbody>
       {rows.map((row, rowIndex) => (
@@ -21,6 +22,9 @@ const TableBody: React.FC<TableBodyProps> = ({ rows, columns, onCellClick }) => 
               </div>
             </td>
           ))}
+          <td>
+            <Button onClick={() => onRemoveRow(rowIndex)} label="Удалить строку" variant="secondary" />
+          </td>
         </tr>
       ))}
     </tbody>

@@ -30,6 +30,11 @@ const Table: React.FC = () => {
     setRows([...rows, newRow]);
   };
 
+  const removeRow = (rowIndex: number) => {
+    const updatedRows = rows.filter((_, index) => index !== rowIndex);
+    setRows(updatedRows);
+  };
+
   const addColumn = () => {
     const newColumn: Column = {
       title: `Column ${columns.length + 1}`,
@@ -37,6 +42,13 @@ const Table: React.FC = () => {
     };
     setColumns([...columns, newColumn]);
     const updatedRows = rows.map(row => [...row, '']);
+    setRows(updatedRows);
+  };
+
+  const removeColumn = (index: number) => {
+    const updatedColumns = columns.filter((_, colIndex) => colIndex !== index);
+    const updatedRows = rows.map(row => row.filter((_, colIndex) => colIndex !== index));
+    setColumns(updatedColumns);
     setRows(updatedRows);
   };
 
@@ -101,8 +113,17 @@ const Table: React.FC = () => {
     <main className={styles.tableSection}>
       <div className="container">
         <table className={styles.table}>
-          <TableHeader columns={columns} onColumnClick={openModalForColumn} />
-          <TableBody rows={rows} columns={columns} onCellClick={openModalForCell} />
+          <TableHeader 
+            columns={columns} 
+            onColumnClick={openModalForColumn} 
+            onRemoveColumn={removeColumn} 
+          />
+          <TableBody 
+            rows={rows} 
+            columns={columns} 
+            onCellClick={openModalForCell} 
+            onRemoveRow={removeRow}
+          />
         </table>
         <div className={styles.buttons}>
           <Button onClick={addRow} label="Добавить строку" />

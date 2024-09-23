@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './button.module.scss'; // Импортируем стили кнопки
+import styles from './button.module.scss';
 
 interface ButtonProps {
   onClick: () => void;
   label: string;
-  variant?: 'primary' | 'secondary' | 'icon'; // Добавляем вариант 'icon'
+  variant?: 'primary' | 'secondary' | 'icon';
 }
 
 const Button: React.FC<ButtonProps> = ({ onClick, label, variant = 'primary' }) => {
